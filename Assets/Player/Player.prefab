@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6202818483877208974}
   - component: {fileID: 686896356113276329}
   - component: {fileID: 5184871770214162436}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 3239031363638839213}
   - component: {fileID: 8792028460247535338}
   - component: {fileID: 6495966387812555845}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 4386337566211810156}
   - component: {fileID: 8719868824970673400}
   - component: {fileID: 6867849123774284322}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: bttP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 53071545424272770}
   - component: {fileID: 866795811219589495}
   - component: {fileID: 4625301753476667193}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Image (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 7239499034890480803}
   - component: {fileID: 2331061094865123584}
   - component: {fileID: 5149377302199165990}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: bttD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,7 +449,7 @@ GameObject:
   - component: {fileID: 4517410265370941345}
   - component: {fileID: 5469170981155347202}
   - component: {fileID: 9052585227961622535}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -525,7 +525,7 @@ GameObject:
   - component: {fileID: 8969794048049170027}
   - component: {fileID: 4184646754098373385}
   - component: {fileID: 2033562581064345238}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: bttP3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 5184295198479676579}
   - component: {fileID: 9004874738259648806}
   - component: {fileID: 141257522234766726}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: bttJump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -703,7 +703,7 @@ GameObject:
   - component: {fileID: 3227523009787255832}
   - component: {fileID: 8408461101018586958}
   - component: {fileID: 3921099869035341127}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: bttA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -792,7 +792,7 @@ GameObject:
   - component: {fileID: 3586512174812381537}
   - component: {fileID: 7917337286609099734}
   - component: {fileID: 7520474421841827463}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: bttP2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -880,7 +880,7 @@ GameObject:
   - component: {fileID: 4725644903303275995}
   - component: {fileID: 5919333036816963332}
   - component: {fileID: 1237970995192872908}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -963,9 +963,9 @@ GameObject:
   - component: {fileID: 8415581127428557253}
   - component: {fileID: 1118008935836087835}
   - component: {fileID: 2186391413381817686}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -979,7 +979,7 @@ Transform:
   m_GameObject: {fileID: 7920040307951642883}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.92, y: 2.71, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1178,7 +1178,7 @@ GameObject:
   - component: {fileID: 6972828267319470409}
   - component: {fileID: 1636711568075537179}
   - component: {fileID: 2152659070797779350}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1194,7 +1194,7 @@ Transform:
   m_GameObject: {fileID: 8029082185130226139}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 3, z: -10}
+  m_LocalPosition: {x: 3.5, y: 3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1268,7 +1268,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4807814851807486061}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
