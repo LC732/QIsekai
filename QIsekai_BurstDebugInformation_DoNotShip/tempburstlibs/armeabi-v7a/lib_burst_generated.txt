@@ -9,7 +9,7 @@ Library: C:\Users\CapiPato\Documents\Qisekai\QIsekai\QIsekai\Temp\BurstOutput\te
 --target-framework=NetFramework
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=C:\Users\CapiPato\Documents\Qisekai\QIsekai\QIsekai\Temp\Burst
---key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.52f1/Editor/Data/PlaybackEngines/AndroidPlayer
+--key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.53f1/Editor/Data/PlaybackEngines/AndroidPlayer
 --decode-folder=C:\Users\CapiPato\Documents\Qisekai\QIsekai\QIsekai\Library\Burst
 --output=C:\Users\CapiPato\Documents\Qisekai\QIsekai\QIsekai\Temp\BurstOutput\tempburstlibs\armeabi-v7a\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/

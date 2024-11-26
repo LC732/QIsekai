@@ -1,8 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.iOS;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -27,6 +31,9 @@ public class PlayerScript : MonoBehaviour
     public GameObject acid;  
     public GameObject salt;  
     private bool isFlip = false;
+
+    public List<GameObject> vidas;
+    private int vidasI = 3;
 
     
 
@@ -110,8 +117,33 @@ public class PlayerScript : MonoBehaviour
             stSalt.GetComponent<Rigidbody2D>().velocity =new Vector2(1f,1f)*shootForce + rb.velocity;
         }
     }
-
-
    }
+
+void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Verifica se o objeto colidido tem a tag "Damage"
+        if (collision.gameObject.CompareTag("Damage") && vidasI > 0)
+        {
+            // Reduz o contador de vidas
+            vidasI--;
+
+            // Torna invisível o elemento de vida correspondente
+            vidas[vidasI].SetActive(false);
+        }
+
+        // Verifica se as vidas acabaram e, se sim, reinicia a cena
+        if (vidasI == 0)
+        {
+            ReiniciarCena();
+        }
+    }
+
+    void ReiniciarCena()
+    {
+        // Recarrega a cena atual
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+
 
 }

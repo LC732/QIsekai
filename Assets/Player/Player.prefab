@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 686896356113276329}
   - component: {fileID: 5184871770214162436}
   m_Layer: 3
-  m_Name: Image
+  m_Name: Vida1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 866795811219589495}
   - component: {fileID: 4625301753476667193}
   m_Layer: 3
-  m_Name: Image (2)
+  m_Name: Vida3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 5469170981155347202}
   - component: {fileID: 9052585227961622535}
   m_Layer: 3
-  m_Name: Image (1)
+  m_Name: Vida2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1095,6 +1095,10 @@ MonoBehaviour:
   agua: {fileID: 1560395058225943843, guid: c80535ec789fa064b84aba0c42ecf4ee, type: 3}
   acid: {fileID: 6112781756837660681, guid: 9b08806caa4d67a4284ba848028db205, type: 3}
   salt: {fileID: 6725197050578939637, guid: 9edc7185ab460e049beffcba0ce99213, type: 3}
+  vidas:
+  - {fileID: 302729853145589398}
+  - {fileID: 5663035422076002776}
+  - {fileID: 2573634758938167250}
 --- !u!70 &8415581127428557253
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1127,8 +1131,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.012614489, y: -0.10918966}
-  m_Size: {x: 0.6141696, y: 0.8643963}
+  m_Offset: {x: -0.07411671, y: -0.14277583}
+  m_Size: {x: 0.9940233, y: 1.3395056}
   m_Direction: 0
 --- !u!114 &1118008935836087835
 MonoBehaviour:
@@ -1284,7 +1288,7 @@ Transform:
   m_GameObject: {fileID: 8976706543704709164}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
