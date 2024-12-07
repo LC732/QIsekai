@@ -14,7 +14,7 @@ public class InimigoScript : MonoBehaviour
     private bool isGrounded = false;  // Verifica se o inimigo está tocando o chão
     private bool movingLeft = true;  // Controla a direção do movimento
 
-    void Update()
+    void FixedUpdate()
     {
         // Verifica se o inimigo está no chão
         isGrounded = IsGrounded();

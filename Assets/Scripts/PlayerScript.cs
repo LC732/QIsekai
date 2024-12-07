@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEditor.PackageManager.Requests;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 using UnityEngine.iOS;
 using UnityEngine.SceneManagement;
@@ -15,6 +16,8 @@ public class PlayerScript : MonoBehaviour
     {
         
     }
+
+
 
     public Animator animator;
     public SpriteRenderer sprite;
@@ -30,22 +33,45 @@ public class PlayerScript : MonoBehaviour
     public GameObject agua;  
     public GameObject acid;  
     public GameObject salt;  
-    private bool isFlip = false;
+    public bool isFlip = false;
 
     public List<GameObject> vidas;
     private int vidasI = 3;
+    private bool isKnockbackActive = false;
+    private Vector2 knockbackEndPosition;
+    private float knockbackTime = 0.5f; // Tempo do efeito de knockback
+    private float knockbackElapsedTime = 0f;
+    public float knockbackForce = 10f;
+    private Vector2 knockbackDirection;
+    public bool canDamage = true;
+    public float invecibilitiFrames = 0.15f;
+    private float damageTimer = 1f;
 
     
 
 
     // Update is called once per frame
     [System.Obsolete]
-    void Update()
+    void FixedUpdate()
     {
+        damageTimer -= Time.deltaTime;
+        if(!canDamage && damageTimer <= 0){
+            canDamage = true;
+            damageTimer = invecibilitiFrames;
+            isKnockbackActive = false;
+        }
+        if(!isKnockbackActive)
+        {
+            move();
+            Shoot();
+        }
+       
+    }
+
+    void move(){
         horizontalMoviment = GetDirecao();    
         animator.SetFloat("Speed", Mathf.Abs(horizontalMoviment));
         Jump();
-        Shoot();
         rb.velocity = new Vector2(horizontalMoviment * speed, rb.velocity.y);
         if(isFlip){
             sprite.flipX = true;
@@ -119,24 +145,43 @@ public class PlayerScript : MonoBehaviour
     }
    }
 
-void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        // Verifica se o objeto colidido tem a tag "Damage"
-        if (collision.gameObject.CompareTag("Damage") && vidasI > 0)
+        if (collision.gameObject.CompareTag("Damage") && vidasI > 0 && canDamage)
         {
-            // Reduz o contador de vidas
-            vidasI--;
+            // Ativar invulnerabilidade temporária
+            canDamage = false;
+            StartCoroutine(InvulnerabilityCooldown());
 
-            // Torna invisível o elemento de vida correspondente
-            vidas[vidasI].SetActive(false);
+            // Aplicar knockback com base na direção da colisão
+            if(collision.transform.position.x > transform.position.x){
+                rb.velocity = new Vector2(knockbackForce, knockbackForce);
+                
+                rb.velocity = new Vector2(knockbackForce, 0);
+
+            }
+            if(collision.transform.position.x <= transform.position.x){
+                rb.velocity = new Vector2(knockbackForce, knockbackForce);
+                rb.velocity = new Vector2(knockbackForce, 0f);
+            }
+            // Reduzir vida
+            //vidasI--;
+            //vidas[vidasI].SetActive(false);
         }
-
-        // Verifica se as vidas acabaram e, se sim, reinicia a cena
+        // Reiniciar cena se as vidas chegarem a zero
         if (vidasI == 0)
         {
             ReiniciarCena();
         }
+        
     }
+
+private IEnumerator InvulnerabilityCooldown()
+{
+    yield return new WaitForSeconds(invecibilitiFrames);
+    canDamage = true; // Restaurar a vulnerabilidade.
+}
+
 
     void ReiniciarCena()
     {
