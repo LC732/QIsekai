@@ -223,7 +223,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   groundCheck: {fileID: 765542684730767277}
-  wallCheck: {fileID: 0}
+  wallCheck: {fileID: 6924581873470107481}
   speed: 2
 --- !u!114 &-1934038488289781372
 MonoBehaviour:

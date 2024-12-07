@@ -1209,26 +1209,22 @@ MonoBehaviour:
   animator: {fileID: 2186391413381817686}
   sprite: {fileID: 8732583727587431222}
   rb: {fileID: 1354813206510323234}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
   groundCheck: {fileID: 4807814851807486061}
   jumpForce: 20
   speed: 10
-  shootForce: 5
+  shootForce: 16
   shootRate: 1
-  shootTimer: 0
+  knockbackForce: 10
+  invincibilityDuration: 0.15
+  canDamage: 1
   agua: {fileID: 1560395058225943843, guid: c80535ec789fa064b84aba0c42ecf4ee, type: 3}
   acid: {fileID: 6112781756837660681, guid: 9b08806caa4d67a4284ba848028db205, type: 3}
   salt: {fileID: 6725197050578939637, guid: 9edc7185ab460e049beffcba0ce99213, type: 3}
-  isFlip: 0
   vidas:
   - {fileID: 302729853145589398}
   - {fileID: 5663035422076002776}
   - {fileID: 2573634758938167250}
-  knockbackForce: 10
-  canDamage: 1
-  invecibilitiFrames: 0.15
+  isFlip: 0
 --- !u!70 &8415581127428557253
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

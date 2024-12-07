@@ -28,18 +28,13 @@ public class InimigoScript : MonoBehaviour
                 MoveRight();
         }
 
-        // Atualiza a animação
-        UpdateAnimation();
-
         // Verifica limites ou colisões para mudar de direção
         CheckDirectionChange();
     }
 
     // Função para verificar se o inimigo está tocando o chão
-    private bool IsGrounded()
-    {
-        // Verifica se há colisão com o chão
-        return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+    private bool IsGrounded(){
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
     // Função para mover o inimigo para a esquerda
@@ -53,13 +48,6 @@ public class InimigoScript : MonoBehaviour
     private void MoveRight()
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
-    }
-
-    // Atualiza a animação do inimigo
-    private void UpdateAnimation()
-    {
-        // Define o parâmetro "Speed" no Animator de acordo com a velocidade
-        animator.SetFloat("Speed", Mathf.Abs(speed));
     }
 
     // Verifica se o inimigo precisa mudar de direção
