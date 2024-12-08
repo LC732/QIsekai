@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Boss/BossScene.unity
     guid: 2d9b1fdebbe6d564ab0d0eea061f96bb
+  - enabled: 1
+    path: Assets/Scenes/menu/Credits.unity
+    guid: cf7284012ea598144b0f4f4c6070fa3c
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: dda1b204ca9b0df40883819dd2e8957b, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 3d671250d4620ca47a802c47920587bd, type: 2}

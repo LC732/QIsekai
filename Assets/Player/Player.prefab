@@ -1182,7 +1182,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 4
+  m_GravityScale: 8
   m_Material: {fileID: 6200000, guid: 0147d8d7eb853df489d788290da228c7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1210,9 +1210,12 @@ MonoBehaviour:
   sprite: {fileID: 8732583727587431222}
   rb: {fileID: 1354813206510323234}
   groundCheck: {fileID: 4807814851807486061}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
   jumpForce: 20
   speed: 10
-  shootForce: 16
+  shootForce: 5
   shootRate: 1
   knockbackForce: 10
   invincibilityDuration: 0.15
@@ -1414,7 +1417,7 @@ Transform:
   m_GameObject: {fileID: 8976706543704709164}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.8, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

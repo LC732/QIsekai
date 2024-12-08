@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,11 +7,10 @@ public class MenuScrip : MonoBehaviour
 
     public void quit(){
         Application.Quit();
-        Debug.Log("Fiz o L");
     }
 
-    public void play(){
-        SceneManager.LoadScene("Map1Scene");
+    public void play(UnityEngine.Object scene){
+        SceneManager.LoadScene(scene.name);
     }
 
 }

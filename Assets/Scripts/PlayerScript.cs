@@ -105,8 +105,8 @@ public class PlayerScript : MonoBehaviour
 
         var keyboard = Keyboard.current;
         if (keyboard.jKey.isPressed) ShootProjectile(agua);
-        if (keyboard.kKey.isPressed) ShootProjectile(acid);
-        if (keyboard.lKey.isPressed) ShootProjectile(salt);
+        else if (keyboard.kKey.isPressed) ShootProjectile(acid);
+        else if (keyboard.lKey.isPressed) ShootProjectile(salt);
     }
 
     private void ShootProjectile(GameObject projectile)
