@@ -10,13 +10,6 @@ public class aguaScript : MonoBehaviour
     [SerializeField] private AudioClip breakSound;
     [SerializeField] private Color spreadColor;
     [SerializeField] private ParticleSystem droplets;
-    void Start()
-    {
-        
-    }
-
-    
-    public GameObject self;
     public Rigidbody2D rb;
     public float rotationSpeed = 50f;
 
@@ -30,8 +23,10 @@ public class aguaScript : MonoBehaviour
     { 
         ParticleSystem bom = Instantiate(droplets, transform.position, Quaternion.identity);
         bom.startColor = spreadColor;
+        
         SoundEFManager.instance.PlaySoundFXclip(breakSound, transform, 1f);
-        Destroy(self);
+
+        Destroy(gameObject);
     }
 
 }
