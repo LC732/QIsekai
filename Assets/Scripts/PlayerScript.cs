@@ -13,11 +13,20 @@ public class PlayerScript : MonoBehaviour
     public SpriteRenderer sprite;
     public Rigidbody2D rb;
     public Transform groundCheck;
-    public LayerMask groundLayer; 
+    public LayerMask groundLayer;
+    [SerializeField] private LayerMask iceLayer;
 
     [Header("Movement Settings")]
     [SerializeField] private float jumpForce = 16f;
     [SerializeField] private float speed = 200f;
+    private string detectedLayer = ""; // Para armazenar o tipo detectado. 
+
+    [Header("Ice Settings")]
+
+    [SerializeField] private float iceMoveInput;
+    [SerializeField] private float iceBaseSpeed = 0f;
+    [SerializeField] private float iceMaxSpeed;
+
 
     [Header("Shooting Settings")]
     [SerializeField] private float shootForce = 5f;
@@ -72,10 +81,44 @@ public class PlayerScript : MonoBehaviour
 
     private void Move()
     {
+        float inputMove;
         horizontalMovement = GetDirection();
         animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
-        rb.velocity = new Vector2(horizontalMovement * speed, rb.velocity.y);
         sprite.flipX = isFlip;
+
+
+        if (IsOnIce())
+        {
+            if (horizontalMovement != 0)
+            {
+                iceMoveInput += horizontalMovement * Time.deltaTime;
+            }
+            else
+            {
+                if (iceMoveInput > 0)
+                {
+                    iceMoveInput -= Time.deltaTime;
+                }
+                else if (iceMoveInput < 0)
+                {
+                    iceMoveInput += Time.deltaTime;
+                }
+            }
+
+            if(iceMoveInput > iceMaxSpeed){
+                iceMoveInput = iceMaxSpeed;
+            }else if(iceMoveInput < -iceMaxSpeed){
+                iceMoveInput = -iceMaxSpeed;
+            }
+            inputMove = iceMoveInput;
+        }
+        else
+        {
+            iceMoveInput = iceBaseSpeed;
+            inputMove = horizontalMovement;
+        }
+
+        rb.velocity = new Vector2(inputMove * speed, rb.velocity.y);
     }
 
     private int GetDirection()
@@ -88,17 +131,25 @@ public class PlayerScript : MonoBehaviour
 
     private void Jump()
     {
-        
+
         var keyboard = Keyboard.current;
-        if(keyboard.spaceKey.isPressed && IsGrounded()){
+        if (keyboard.spaceKey.isPressed && IsGrounded())
+        {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }else if(!keyboard.spaceKey.isPressed && rb.velocity.y > 0f){
+        }
+        else if (!keyboard.spaceKey.isPressed && rb.velocity.y > 0f)
+        {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.3f);
         }
     }
 
-    private bool IsGrounded(){
+    private bool IsGrounded()
+    {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+    }
+
+    private bool IsOnIce(){
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, iceLayer);
     }
 
     private void Shoot()
@@ -113,17 +164,17 @@ public class PlayerScript : MonoBehaviour
 
     private void ShootProjectile(GameObject projectile)
     {
-        Vector2 direction = isFlip ? new Vector2(-1f,1f) : new Vector2(1f, 1f);
+        Vector2 direction = isFlip ? new Vector2(-1f, 1f) : new Vector2(1f, 1f);
         GameObject instance = Instantiate(projectile, transform.position, Quaternion.identity);
         instance.GetComponent<Rigidbody2D>().velocity = direction * shootForce + rb.velocity;
         shootTimer = shootRate;
     }
 
-     void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         isDamaged(collision);
         isHealed(collision);
-        
+
     }
 
     private void isHealed(Collision2D collision)
@@ -142,7 +193,8 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void isDamaged(Collision2D collision){
+    private void isDamaged(Collision2D collision)
+    {
 
         if (collision.gameObject.CompareTag("Damage") && vidasI > 0 && canDamage)
         {
@@ -151,10 +203,13 @@ public class PlayerScript : MonoBehaviour
             StartCoroutine(InvulnerabilityCooldown());
 
             // Aplicar knockback com base na direção da colisão
-            if(collision.transform.position.x < transform.position.x){
+            if (collision.transform.position.x < transform.position.x)
+            {
                 rb.velocity = new Vector2(knockbackForce, knockbackForce);
-                
-            }else if(collision.transform.position.x >= transform.position.x){
+
+            }
+            else if (collision.transform.position.x >= transform.position.x)
+            {
                 rb.velocity = new Vector2(-knockbackForce, knockbackForce);
             }
 
@@ -174,7 +229,7 @@ public class PlayerScript : MonoBehaviour
         rb.velocity = direction * knockbackForce;
     }
 
-     private IEnumerator InvulnerabilityCooldown()
+    private IEnumerator InvulnerabilityCooldown()
     {
         yield return new WaitForSeconds(invincibilityDuration);
         canDamage = true;
