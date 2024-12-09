@@ -11,8 +11,7 @@ public class LifeCrystalScript : MonoBehaviour
 [SerializeField] GameObject player;
 [SerializeField] SpriteRenderer IceHeart;
 [SerializeField] SpriteRenderer Heart;
-
-
+ 
 void OnCollisionEnter2D(Collision2D collision)
 {
     // Verifica se o targetObject foi atribuído
@@ -25,6 +24,7 @@ void OnCollisionEnter2D(Collision2D collision)
             changeToCrystal();
         }
         if (collision.gameObject.tag == player.tag && Heart.enabled){
+            gameObject.tag = "LifeCrystal";
             Destroy(gameObject);
         }
     }

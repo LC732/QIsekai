@@ -176,6 +176,7 @@ MonoBehaviour:
   shoot: {fileID: 1119093261939305865, guid: 741d9c6974e3cde4e972ba58a07ca459, type: 3}
   spr: {fileID: 1348979102405350961}
   shootSpeed: 12
+  shootSpeedUntilTrigger: 6
   timeToTrigger: 0.25
   animator: {fileID: -5798540738892864031}
 --- !u!50 &8014757531585465971

@@ -220,6 +220,7 @@ public class PlayerScript : MonoBehaviour
         // Reiniciar cena se as vidas chegarem a zero
         if (vidasI == 0)
         {
+            ScoreScript.lifeScore -= 3;
             ReiniciarCena();
         }
     }

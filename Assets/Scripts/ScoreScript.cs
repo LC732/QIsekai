@@ -23,10 +23,12 @@ public class ScoreScript : MonoBehaviour
         }
 
         float scoreValor = k / (timeSpent + c);
+        if(lifeScore >= 0) lifeScore = 1;
         scoreValor *= lifeScore;
         score.text = string.Format("Score: {0:D4}", (int)scoreValor); // Mostra com 2 casas decimais
 
         TimerScript.time = 0f;
+        lifeScore = 1;
     }
 
     public void play(UnityEngine.Object scene){
