@@ -291,8 +291,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 6405653724169814382}
   dialogText: {fileID: 2112918523946632879}
-  dialogCanvas: {fileID: 4312109324616524394, guid: 3a967e0a86af355468e119019983d81b, type: 3}
-  playerCanvas: {fileID: 0}
+  dialogCanvas: {fileID: 4995641341882079793}
+  playerCanvas: {fileID: 4312109324616524394, guid: 3a967e0a86af355468e119019983d81b, type: 3}
 --- !u!114 &5337101231532606094
 MonoBehaviour:
   m_ObjectHideFlags: 0

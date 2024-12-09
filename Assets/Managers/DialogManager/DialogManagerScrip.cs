@@ -56,20 +56,10 @@ public class DialogManagerScrip : MonoBehaviour
 
         Dialog currentDialog = dialogQueue.Dequeue(); // Obtém o próximo diálogo
         nameText.text = currentDialog.name; // Exibe o nome
-        StopAllCoroutines(); // Para qualquer texto sendo escrito
-        StartCoroutine(TypeSentence(currentDialog.text)); // Escreve o texto gradualmente
+        dialogText.text = currentDialog.text; // Escreve o texto gradualmente
     }
 
-    private IEnumerator TypeSentence(string sentence)
-    {
-        dialogText.text = "";
-        foreach (char letter in sentence.ToCharArray())
-        {
-            dialogText.text += letter; // Escreve letra por letra
-            yield return new WaitForSeconds(0.05f); // Tempo entre cada letra
-        }
-    }
-
+    
     private void EndDialog()
     {
         dialogCanvas.enabled = false ; // Esconde a caixa de diálogo

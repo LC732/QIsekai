@@ -170,9 +170,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e4cee560250f942bb5fbe19c38f1ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 7920040307951642883, guid: 77b9521844d989a438639908f1020b59, type: 3}
+  player: {fileID: 4859695623078785951, guid: f48a044f862b90a4089fbc37d1baf4d0, type: 3}
   isVisible: 0
-  shootTimer: 1
+  shootTimer: 5
   shoot: {fileID: 1119093261939305865, guid: 741d9c6974e3cde4e972ba58a07ca459, type: 3}
   spr: {fileID: 1348979102405350961}
   shootSpeed: 12

@@ -289,6 +289,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 6725197050578939637, guid: 9edc7185ab460e049beffcba0ce99213, type: 3}
-  player: {fileID: 7920040307951642883, guid: 77b9521844d989a438639908f1020b59, type: 3}
+  player: {fileID: 4859695623078785951, guid: f48a044f862b90a4089fbc37d1baf4d0, type: 3}
   IceHeart: {fileID: 7264931290194487943}
   Heart: {fileID: 928691573207390460}
