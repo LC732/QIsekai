@@ -122,6 +122,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &16560760
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5572688086042767417, guid: cf5027a297ec76d48a2b1f0ebc60fa7d, type: 3}
+      propertyPath: m_Name
+      value: TransitionManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560703172567340759, guid: cf5027a297ec76d48a2b1f0ebc60fa7d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.77505964
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560703172567340759, guid: cf5027a297ec76d48a2b1f0ebc60fa7d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22834928
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560703172567340759, guid: cf5027a297ec76d48a2b1f0ebc60fa7d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.10383318
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560703172567340759, guid: cf5027a297ec76d48a2b1f0ebc60fa7d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560703172567340759, guid: cf5027a297ec76d48a2b1f0ebc60fa7d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560703172567340759, guid: cf5027a297ec76d48a2b1f0ebc60fa7d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560703172567340759, guid: cf5027a297ec76d48a2b1f0ebc60fa7d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560703172567340759, guid: cf5027a297ec76d48a2b1f0ebc60fa7d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560703172567340759, guid: cf5027a297ec76d48a2b1f0ebc60fa7d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560703172567340759, guid: cf5027a297ec76d48a2b1f0ebc60fa7d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cf5027a297ec76d48a2b1f0ebc60fa7d, type: 3}
 --- !u!1 &379531178
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,7 +673,6 @@ GameObject:
   - component: {fileID: 1080399488}
   - component: {fileID: 1080399487}
   - component: {fileID: 1080399486}
-  - component: {fileID: 1080399489}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -699,18 +755,6 @@ Transform:
   - {fileID: 1643696730}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1080399489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1080399485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1085123822
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,7 +971,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1119558744}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1195163439}
+        m_TargetAssemblyTypeName: MenuScrip, Assembly-CSharp
+        m_MethodName: play
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 102900000, guid: 3fc8acdd13e6c734bafef6554d6fdbcd, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1119558744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1725,4 +1781,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1080399488}
+  - {fileID: 16560760}
   - {fileID: 1195163438}

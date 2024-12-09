@@ -13,8 +13,6 @@ public class DialogManagerScrip : MonoBehaviour
     [SerializeField] public TextMeshProUGUI dialogText; // Texto do diálogo
     [SerializeField] private Canvas dialogCanvas; // Caixa de diálogo
     [SerializeField] private Canvas playerCanvas;
-    [SerializeField] private EventSystem dialogES;
-    [SerializeField] private EventSystem playerES;
     private Queue<Dialog> dialogQueue; // Fila de diálogos
 
     private void Awake()

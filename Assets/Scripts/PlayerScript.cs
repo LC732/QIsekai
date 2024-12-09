@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,6 +37,7 @@ public class PlayerScript : MonoBehaviour
     [Header("Life Settings")]
     public List<GameObject> vidas; // Lista dos ícones de vida no HUD
     private int vidasI = 3; // Quantidade de vidas restantes
+    static int lifeScore = 0;
 
     private float horizontalMovement;
     public bool isFlip;
@@ -119,6 +121,29 @@ public class PlayerScript : MonoBehaviour
 
      void OnCollisionEnter2D(Collision2D collision)
     {
+        isDamaged(collision);
+        isHealed(collision);
+        
+    }
+
+    private void isHealed(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("LifeCrystal") && vidasI < 3)
+        {
+            //Almentar vida
+            vidas[vidasI].SetActive(true);
+            vidasI++;
+
+        }
+        // Reiniciar cena se as vidas chegarem a zero
+        if (vidasI == 3)
+        {
+            ScoreScript.lifeScore++;
+        }
+    }
+
+    private void isDamaged(Collision2D collision){
+
         if (collision.gameObject.CompareTag("Damage") && vidasI > 0 && canDamage)
         {
             // Ativar invulnerabilidade temporária
@@ -142,7 +167,6 @@ public class PlayerScript : MonoBehaviour
         {
             ReiniciarCena();
         }
-        
     }
 
     private void ApplyKnockback(Vector2 direction)

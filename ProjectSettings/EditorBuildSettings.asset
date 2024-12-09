@@ -12,14 +12,20 @@ EditorBuildSettings:
     path: Assets/Scenes/menu/menu.unity
     guid: 2706342758123c349bae2eb0eb25d1d4
   - enabled: 1
+    path: Assets/Scenes/DevScene.unity
+    guid: 3fc8acdd13e6c734bafef6554d6fdbcd
+  - enabled: 1
     path: Assets/Scenes/Map1.unity
     guid: 04365b45a5ed229499149438bf5fa0e6
   - enabled: 1
-    path: Assets/Boss/BossScene.unity
-    guid: 2d9b1fdebbe6d564ab0d0eea061f96bb
+    path: Assets/Scenes/map2.unity
+    guid: 01542b619b6debd4cad258966721d99c
   - enabled: 1
     path: Assets/Scenes/menu/Credits.unity
     guid: cf7284012ea598144b0f4f4c6070fa3c
+  - enabled: 1
+    path: Assets/Scenes/menu/EndScene.unity
+    guid: 92ee477cffb86a84d9762240d9b73ac9
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: dda1b204ca9b0df40883819dd2e8957b, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 3d671250d4620ca47a802c47920587bd, type: 2}

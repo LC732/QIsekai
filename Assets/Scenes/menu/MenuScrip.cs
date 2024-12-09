@@ -10,7 +10,7 @@ public class MenuScrip : MonoBehaviour
     }
 
     public void play(UnityEngine.Object scene){
-        SceneManager.LoadScene(scene.name);
+        TransitionManager.intent.TransitionTo(scene.name);
     }
 
 }
