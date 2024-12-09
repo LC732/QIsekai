@@ -230,7 +230,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 8
@@ -263,9 +263,15 @@ MonoBehaviour:
   groundCheck: {fileID: 4807814851807486061}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1088
+  iceLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   jumpForce: 20
   speed: 10
+  iceMoveInput: 0
+  iceBaseSpeed: 0
+  iceMaxSpeed: 2
   shootForce: 5
   shootRate: 1
   knockbackForce: 10
