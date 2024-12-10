@@ -9,8 +9,8 @@ public class ScoreScript : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI score;
     static public int lifeScore = 1;
-    private float k = 1000f;
-    private float c = 10f;
+    private float k = 9999f;
+    private float c = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class ScoreScript : MonoBehaviour
             timeSpent = 1f; // Evita divisões por zero
         }
 
-        float scoreValor = k / (timeSpent + c);
+        float scoreValor = k / (timeSpent/100 + c);
         if(lifeScore >= 0) lifeScore = 1;
         scoreValor *= lifeScore;
         score.text = string.Format("Score: {0:D4}", (int)scoreValor); // Mostra com 2 casas decimais
@@ -31,8 +31,8 @@ public class ScoreScript : MonoBehaviour
         lifeScore = 1;
     }
 
-    public void play(UnityEngine.Object scene){
-        TransitionManager.intent.TransitionTo(scene.name);
+    public void play(String scene){
+        TransitionManager.intent.TransitionTo(scene);
     }
 
 

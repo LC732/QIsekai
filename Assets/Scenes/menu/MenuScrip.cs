@@ -9,8 +9,12 @@ public class MenuScrip : MonoBehaviour
         Application.Quit();
     }
 
-    public void play(UnityEngine.Object scene){
-        TransitionManager.intent.TransitionTo(scene.name);
+    public void play(String scene){
+        TransitionManager.intent.TransitionTo(scene);
+    }
+
+    public void play2(String scene){
+        SceneManager.LoadScene(scene);
     }
 
 }
