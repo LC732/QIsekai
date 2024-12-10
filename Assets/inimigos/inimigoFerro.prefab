@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 9092821689937805046}
   - component: {fileID: 3809420404017579493}
   m_Layer: 0
-  m_Name: inimigo
+  m_Name: inimigoFerro
   m_TagString: Damage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

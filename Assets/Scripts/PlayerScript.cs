@@ -19,7 +19,6 @@ public class PlayerScript : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private float jumpForce = 16f;
     [SerializeField] private float speed = 200f;
-    private string detectedLayer = ""; // Para armazenar o tipo detectado. 
 
     [Header("Ice Settings")]
 
@@ -46,8 +45,6 @@ public class PlayerScript : MonoBehaviour
     [Header("Life Settings")]
     public List<GameObject> vidas; // Lista dos ícones de vida no HUD
     private int vidasI = 3; // Quantidade de vidas restantes
-    static int lifeScore = 0;
-
     private float horizontalMovement;
     public bool isFlip;
 
@@ -172,20 +169,19 @@ public class PlayerScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        isDamaged(collision);
         isHealed(collision);
-
+        isDamaged(collision);
     }
 
-    private void isHealed(Collision2D collision)
+    public void isHealed(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("LifeCrystal") && vidasI < 3)
+        if (collision.gameObject.GetComponent<LifeCrystalScript>() != null && collision.gameObject.GetComponent<LifeCrystalScript>().iscrystal && vidasI < 3)
         {
             //Almentar vida
             vidas[vidasI].SetActive(true);
             vidasI++;
 
-        }
+        }else
         // Reiniciar cena se as vidas chegarem a zero
         if (vidasI == 3)
         {

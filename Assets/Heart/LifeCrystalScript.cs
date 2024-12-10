@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.ShortcutManagement;
+
 using UnityEngine;
 
 public class LifeCrystalScript : MonoBehaviour
@@ -9,22 +6,27 @@ public class LifeCrystalScript : MonoBehaviour
 
 [SerializeField] GameObject targetObject; // Objeto cuja tag será comparada
 [SerializeField] GameObject player;
-[SerializeField] SpriteRenderer IceHeart;
-[SerializeField] SpriteRenderer Heart;
- 
+[SerializeField] PlayerScript pS;
+[SerializeField] GameObject IceHeart;
+[SerializeField] GameObject Heart;
+public bool iscrystal = false;
+
+void Start(){
+    IceHeart.SetActive(true);
+    Heart.SetActive(false);
+}
+
 void OnCollisionEnter2D(Collision2D collision)
 {
     // Verifica se o targetObject foi atribuído
     if (targetObject != null && player != null)
     {
         // Compara a tag da colisão com a tag do targetObject
-        if (collision.gameObject.tag == targetObject.tag && IceHeart.enabled)
+        if (collision.gameObject.tag == targetObject.tag && !iscrystal)
         {
-            // Destroi o próprio GameObject
             changeToCrystal();
         }
-        if (collision.gameObject.tag == player.tag && Heart.enabled){
-            gameObject.tag = "LifeCrystal";
+        if (collision.gameObject.tag == player.tag && iscrystal){
             Destroy(gameObject);
         }
     }
@@ -36,8 +38,9 @@ void OnCollisionEnter2D(Collision2D collision)
 
     private void changeToCrystal()
     {
-        IceHeart.enabled = false;
-        Heart.enabled = true;
+        iscrystal = true;
+        IceHeart.SetActive(false);
+        Heart.SetActive(true);
     }
 }
 
